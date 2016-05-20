@@ -1,0 +1,33 @@
+{
+  "name": "sails-pager",
+  "version": "1.0.0",
+  "description": "Pagination Service for SailsJS projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chukaofili/sails-pager.git"
+  },
+  "keywords": [
+    "sailsjs",
+    "pagination",
+    "pager",
+    "paginate",
+    "sails",
+    "express"
+  ],
+  "author": {
+    "name": "Chuka Ofili",
+    "email": "ofili@microsmart.tk"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chukaofili/sails-pager/issues"
+  },
+  "homepage": "https://github.com/chukaofili/sails-pager#readme",
+  "dependencies": {
+    "lodash": "^4.12.0"
+  }
+}
