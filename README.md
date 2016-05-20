@@ -15,6 +15,11 @@ npm install sails-pager
 ```
 
 # Usage
+
+## paginate(options)
+
+This function helps you paginate any model pass to the paginate function.
+
 * Create `YourController.js` file. Insert into following code.
 ```javascript
 var pager = require('sails-pager');
@@ -43,6 +48,17 @@ The `pager.paginate()` function takes the following options:
 Options order: `pager.paginate(res, model, conditions, currentPage, perPage, populateData, sort);`
 
 Please note that the pagination service will handle your output in a specific format.
+
+
+## paginatePupulate(options)
+
+This function helps you paginate any populated data stripping the main model data eg: If a User has many pets and you would like to retrieve a paginated set of the users pets, You'll pass the User as the main model and pass the pets as the populateData, please note this does not support queries yet like the main paginate() function.
+
+The `pager.paginatePopulate()` function takes the same options as the `paginate()` with the exception of the populateData: You can only pass a string to the `pager.paginatePopulate()` and not an array cos you can only paginate one set of pupolated data at once.
+
+1. *populateData* (required | string)
+
+## Response
 
 Example response payload;
 ```
