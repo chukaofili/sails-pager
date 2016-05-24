@@ -1,7 +1,7 @@
 # sails-pager
 Pagination Service for SailsJS projects
 
-This module makes it easy to integrate pagination into your [SailsJS](http://sailsjs.org) application.e.js.
+This module makes it easy to integrate pagination into your [SailsJS](http://sailsjs.org) applications.
 
 * [Installation](#installation)
 * [Usage](#usage)
