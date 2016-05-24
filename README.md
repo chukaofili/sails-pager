@@ -18,7 +18,7 @@ npm install sails-pager
 
 ## paginate(options)
 
-This function helps you paginate any model pass to the paginate function.
+This function helps you paginate any model passed to the paginate function.
 
 * Create `YourController.js` file. Insert into following code.
 ```javascript
