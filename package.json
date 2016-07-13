@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/chukaofili/sails-pager#readme",
   "dependencies": {
+    "bluebird": "^3.4.1",
     "lodash": "^4.12.0"
   }
 }
