@@ -28,26 +28,38 @@ module.exports = {
     list: function(req, res) {
         var perPage = req.query.per_page;
         var currentPage = req.query.page;
-
         var conditions = {active: true};
-        pager.paginate(res, SailsModelHere, conditions, currentPage, perPage, [{name: 'AssociatedModel', query: {isDeleted: false}}], 'createdAt DESC');
+
+        //Using Promises
+        pager.paginate(SailsModelHere, conditions, currentPage, perPage, [{name: 'AssociatedModel', query: {isDeleted: false}}], 'createdAt DESC').then(function(records){
+        	console.log(records);
+        }).catch(function(err) {
+        	console.log(err);
+        });
+
+        //Using a Callback
+        pager.paginate(SailsModelHere, conditions, currentPage, perPage, [{name: 'AssociatedModel', query: {isDeleted: false}}], 'createdAt DESC', function(err, records){
+        	if(err){
+	        	console.log(err);
+        	}
+        	console.log(records);
+        });
   },
 }
 ```
 
 The `pager.paginate()` function takes the following options:
 
-1. *res* (required): This is the res variable from your sailsjs controller.
-2. *model* (required): Pass the sails model you want to query.
-3. *conditions* (required | object, pass *{}* if you have no conditions): This are the conditions for the query pass to the model in 2 above.
-4. *currentPage* (required | integer): This is the current page value for the dataset to return.
-5. *perPage* (optional | integer): The number of results to return per page
-6. *populateData* (optional | array/collection): This is the associated sails model to populate. Multiple models can be populated eg: If main model=User then you can use ['pets', 'images'] or ['pets'] to populate only the User's associated pets. You can also pass populate queries, but you'll have to use a slightly different syntax by pass an object with the name & query properties. eg model=User, ['pets', {name: 'images', query: {isDeleted: false}}], this will populate the User's pets & all images that have not been deleted.
-7. *sort* (optional | string): Pass the same sailsjs sort syntax. 
+1. *model* (required): Pass the sails model you want to query.
+2. *conditions* (required | object, pass *{}* if you have no conditions): This are the conditions for the query pass to the model in 1 above.
+3. *currentPage* (required | integer): This is the current page value for the dataset to return.
+4. *perPage* (required | integer): The number of results to return per page, you can pass false to ignore.
+5. *populateData* (required | array/collection): This is the associated sails model to populate. Multiple models can be populated eg: If main model=User then you can use ['pets', 'images'] or ['pets'] to populate only the User's associated pets. You can also pass populate queries, but you'll have to use a slightly different syntax by pass an object with the name & query properties. eg model=User, ['pets', {name: 'images', query: {isDeleted: false}}], this will populate the User's pets & all images that have not been deleted. You can pass false to ignore.
+6. *sort* (required | string): Pass the same sailsjs sort syntax. You can pass false to ignore.
 
-Options order: `pager.paginate(res, model, conditions, currentPage, perPage, populateData, sort);`
+Options order: `pager.paginate(model, conditions, currentPage, perPage, populateData, sort);`
 
-Please note that the pagination service will handle your output in a specific format.
+Please note that the pagination module will return your records in a specific format.
 
 
 ## paginatePupulate(options)
@@ -58,9 +70,9 @@ The `pager.paginatePopulate()` function takes the same options as the `paginate(
 
 1. *populateData* (required | string)
 
-## Response
+## Returned Records
 
-Example response payload;
+Example returned records object;
 ```
 {
 	"message": "Data retrieved successfully",
