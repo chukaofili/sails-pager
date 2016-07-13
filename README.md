@@ -32,17 +32,17 @@ module.exports = {
 
         //Using Promises
         pager.paginate(SailsModelHere, conditions, currentPage, perPage, [{name: 'AssociatedModel', query: {isDeleted: false}}], 'createdAt DESC').then(function(records){
-        	console.log(records);
+            console.log(records);
         }).catch(function(err) {
-        	console.log(err);
+            console.log(err);
         });
 
         //Using a Callback
         pager.paginate(SailsModelHere, conditions, currentPage, perPage, [{name: 'AssociatedModel', query: {isDeleted: false}}], 'createdAt DESC', function(err, records){
-        	if(err){
-	        	console.log(err);
-        	}
-        	console.log(records);
+            if(err){
+                console.log(err);
+            }
+            console.log(records);
         });
   },
 }
@@ -75,15 +75,15 @@ The `pager.paginatePopulate()` function takes the same options as the `paginate(
 Example returned records object;
 ```
 {
-	"message": "Data retrieved successfully",
-	"data": [{data goes here}],
-	"meta": {
-		"page": 1,
-		"perPage": 20,
-		"previousPage": false,
-		"nextPage": 2,
-		"pageCount": 4,
-		"total": 79
-	}
+    "message": "Data retrieved successfully",
+    "data": [{data goes here}],
+    "meta": {
+        "page": 1,
+        "perPage": 20,
+        "previousPage": false,
+        "nextPage": 2,
+        "pageCount": 4,
+        "total": 79
+    }
 }
 ```
