@@ -1,6 +1,6 @@
 {
   "name": "sails-pager",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Pagination Service for SailsJS projects",
   "main": "index.js",
   "scripts": {
