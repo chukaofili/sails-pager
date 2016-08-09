@@ -1,4 +1,6 @@
 # sails-pager
+[![GitHub version](https://badge.fury.io/gh/chukaofili%2Fsails-pager.svg)](https://badge.fury.io/gh/chukaofili%2Fsails-pager) [![npm version](https://badge.fury.io/js/sails-pager.svg)](https://badge.fury.io/js/sails-pager)
+
 Pagination Service for SailsJS projects
 
 This module makes it easy to integrate pagination into your [SailsJS](http://sailsjs.org) applications.
