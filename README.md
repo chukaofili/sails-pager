@@ -68,9 +68,14 @@ Please note that the pagination module will return your records in a specific fo
 
 This function helps you paginate any populated data stripping the main model data eg: If a User has many pets and you would like to retrieve a paginated set of the users pets, You'll pass the User as the main model and pass the pets as the populateData, please note this does not support queries yet like the main paginate() function.
 
-The `pager.paginatePopulate()` function takes the same options as the `paginate()` with the exception of the populateData: You can only pass a string to the `pager.paginatePopulate()` and not an array cos you can only paginate one set of pupolated data at once.
+The `pager.paginatePopulate()` function takes the same options as the `paginate()` with the exception of the populateData: You can eaither pass a string to the `pager.paginatePopulate()` or an object not an array cos you can only paginate one set of pupolated data at once.
 
 1. *populateData* (required | string)
+2. *populateData* (required | object) e.g 
+```
+//example object of 'populateData'
+{name: 'AssociatedModel', query: {isDeleted: false}, select:['attribute1','attributed2', '...']}
+```
 
 ## Returned Records
 
@@ -89,3 +94,18 @@ Example returned records object;
     }
 }
 ```
+
+## Nice to have
+- populate inside a populate (Nested Populate).
+
+### Submit an issue, feedback or a feature request
+- Any issue topics are welcome.
+
+### CONTRIBUTING
+ - Fork it!
+ - Clone your fork
+ - Create your feature branch: `git checkout -b my-new-feature;`
+ - Commit your changes: `git commit -am 'Add some feature/fix';`
+ - Push to the branch: `git push origin my-new-feature;`
+ - Submit a pull request: 
+
