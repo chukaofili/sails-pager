@@ -1,6 +1,6 @@
 {
   "name": "sails-pager",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Pagination Service for SailsJS projects",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,12 @@
     "name": "Chuka Ofili",
     "email": "ofili@microsmart.tk"
   },
+  "contributors":[
+    {
+      "name": "Mustafa Segun",
+      "email": "segsalerty@gmail.com"
+    }
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/chukaofili/sails-pager/issues"
